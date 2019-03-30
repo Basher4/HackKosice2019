@@ -16,3 +16,10 @@ class HkQueue():
     
     def offset_appointments(self, deltaT):
         pass
+
+    def get_patients_in_queue(self):
+        return len(self.timeline)
+
+    def remove_patient(self):
+        if len(self.timeline) > 0:
+            self.timeline.pop(0)

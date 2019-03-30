@@ -26,17 +26,12 @@ namespace App5
             oJsonObject.Add("e-mail", email.Text);
             oJsonObject.Add("id", id.Text);
             oJsonObject.Add("typ", data);
-            string url = server.Text;
             var stringContent = new StringContent(oJsonObject.ToString(), System.Text.Encoding.UTF8, "application/json");
             HttpResponseMessage response = null;
             response =  await _client.PostAsync("https://8080-dot-6923620-dot-devshell.appspot.com/api/patient/enqueue", stringContent);
-            string output = JsonConvert.SerializeObject(oJsonObject);
-            if (response.IsSuccessStatusCode)
-            {
-                server.Text = "received";
-
-            }
-
+            
+           
+           
         }
         void OnPickerSelectedIndexChanged(object sender, EventArgs e)
         {
