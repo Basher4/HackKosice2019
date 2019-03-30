@@ -1,0 +1,26 @@
+- Pacient Request
+    - Enqueue       /patient/enqueue
+        - id
+        - typ (papiere, vysetrenie)
+        - email
+    - Zrusit        /patient/cancel
+        - id
+    - Stats         /stats
+        - obdobie
+
+- Doktor request
+    - Registrovat objednanych pacientov (den + cas)
+                    /doctor/appointment
+    - Kedy pacient prisiel do ambulancie
+                    /doctor/entered
+        - id
+        - cas
+
+- odpoved
+    - Enqueue
+        - ci je este volne miesto
+            - ak nie je, zavolaj doktorke a ona ta objedna
+        - pocet pacientov pred nim
+        - doba cakania (+-)
+            - kedy ho lekar moze zobrat / interval
+- zaznamenavat vsetko do databaze
