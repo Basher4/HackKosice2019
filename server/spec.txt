@@ -1,18 +1,25 @@
 - Pacient Request
-    - Enqueue       /patient/enqueue
+    - Enqueue       /api/patient/enqueue
         - id
         - typ (papiere, vysetrenie)
         - email
-    - Zrusit        /patient/cancel
+
+        {
+            "id": "rodne cislo",
+            "typ": "papiere",
+            "email": "sarka@email.com"
+        }
+
+    - Zrusit        /api/patient/cancel
         - id
-    - Stats         /stats
+    - Stats         /api/stats
         - obdobie
 
 - Doktor request
     - Registrovat objednanych pacientov (den + cas)
-                    /doctor/appointment
+                    /api/doctor/appointment
     - Kedy pacient prisiel do ambulancie
-                    /doctor/entered
+                    /api/doctor/entered
         - id
         - cas
 
