@@ -19,7 +19,7 @@ namespace App5
            
         }
         HttpClient _client=new HttpClient();
-         async Task OnSendButtonClicked(object sender, EventArgs e)
+         async void OnSendButtonClicked(object sender, EventArgs e)
         {
             JObject oJsonObject = new JObject();
             oJsonObject.Add("e-mail", email.Text);
@@ -28,11 +28,11 @@ namespace App5
             string url = server.Text;
             var stringContent = new StringContent(oJsonObject.ToString(), System.Text.Encoding.UTF8, "application/json");
             HttpResponseMessage response = null;
-            response =  await _client.PostAsync(url, stringContent);
-
+            response =  await _client.PostAsync("https://8080-dot-6923620-dot-devshell.appspot.com/api/patient/enqueue", stringContent);
+            server.Text = stringContent.ToString();
             if (response.IsSuccessStatusCode)
             {
-               server.Text="\tTodoItem successfully saved.";
+              
 
             }
 
