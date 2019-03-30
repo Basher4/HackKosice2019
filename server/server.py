@@ -15,7 +15,7 @@ def hello():
 def patient_enqueue():
     data = request.get_json()
     return patient.enqueue(app.config["hkqueue"],
-                            pd.PatientFromJson(pd.PatientFromJson(data)))
+                            pd.PatientFromJson(data))
 
 @app.route("/api/patient/cancel")
 def patient_cancel():
