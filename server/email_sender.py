@@ -1,8 +1,13 @@
-import smtplib
+import datetime, threading, smtplib
 import patient_data
 
 def schedule_email(user):
-    when_to_send_email = user.appointment_time
+    when_to_send_email = datetime.timedelta(minutes=user.appointment_time) \
+                            - datetime.timedelta(minutes=user.travel_time)
+    delta_seconds = when_to_send_email.total_seconds()
+    t = threading.Timer(delta_seconds, send_email, [user])
+    t.start()
+    return (user, t)
 
 def send_email(user):
     sender = 'hackkosice2019cakaren@gmail.com'
