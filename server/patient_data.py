@@ -4,7 +4,7 @@ def PatientFromJson(data, appointment_time):
                        appointment_time,
                        data["travel_time"])
 
-def PatientFromJson(data):
+def PatientFromJson1(data):
     return PatientFromJson(data, -1)
 
 class PatientData():
