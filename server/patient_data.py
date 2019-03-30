@@ -15,3 +15,4 @@ class PatientData():
         self.email = email
         self.travel_time = travel_time
         self.appointment_time = appointment_time
+        self.email_scheduller = None
