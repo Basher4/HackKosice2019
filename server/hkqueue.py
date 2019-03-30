@@ -1,7 +1,7 @@
 class HkQueue(object):
     avg_examination_time = 12
-    start_time = 8 * 60
-    end_time = 16 * 60
+    start_time = 23 * 60
+    end_time = 25 * 60
     
     def __init__(self):
         self.slot_available = True
@@ -11,7 +11,7 @@ class HkQueue(object):
     def get_first_free_slot(self): #fix_first_free_slot
         print()
         print("end_index", self.end_index)
-        print("timeline", self.timeline)
+        print("timeline", len(self.timeline))
         print()
 
         if self.end_index == len(self.timeline) - 1:
