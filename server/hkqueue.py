@@ -7,15 +7,12 @@ class HkQueue():
         self.slot_available = True
         self.timeline = []
     
-    def add_doctor_appointment(self, patient):
-        self.timeline.append(patient)
-        self.timeline.sort(key = lambda p: p.appointment_time)
-
     def get_first_free_slot(self):
         pass
 
     def add_patient(self, patient):
-        pass
+        self.timeline.append(patient)
+        self.timeline.sort(key = lambda p: p.appointment_time)
     
     def offset_appointments(self, deltaT):
         pass
