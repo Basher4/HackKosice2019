@@ -2,7 +2,7 @@
 using Xamarin.Forms;
 using System;
 using System.IO;
-using Org.Json;
+
 using Newtonsoft.Json.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
@@ -19,7 +19,7 @@ namespace App5
            
         }
         HttpClient _client=new HttpClient();
-         async Task OnSendButtonClicked(object sender, EventArgs e)
+         async void OnSendButtonClicked(object sender, EventArgs e)
         {
             JObject oJsonObject = new JObject();
             oJsonObject.Add("e-mail", email.Text);
