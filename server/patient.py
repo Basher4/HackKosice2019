@@ -9,6 +9,7 @@ def enqueue(hkqueue, data):
             data.appointment_time = datetime.now().hour * 60 + datetime.now().minute
     else:
         data.appointment_time = hkqueue.timeline[hkqueue.end_index].appointment_time
+    hkqueue.add_patient(data)
     stav = hkqueue.get_first_free_slot()
     resp = {
         "full": stav,

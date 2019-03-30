@@ -25,7 +25,6 @@ class HkQueue(object):
                 self.get_first_free_slot()
                 return True
 
-
     def add_patient(self, patient):
         self.timeline.append(patient)
         self.timeline.sort(key = lambda p: p.appointment_time)
