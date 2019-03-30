@@ -2,7 +2,7 @@ from flask import jsonify
 from datetime import datetime
 
 def enqueue(hkqueue, data):
-    if (len(hkqueue.timeline) == 0) or (hkqueue.timeline[hkqueue.end_index].appointment_time > hkqueue.avg_examination_time + 10 + int(datetime.datetime.now()[15:17])*60 + int(datetime.datetime.now()[18:20])):
+    if (len(hkqueue.timeline) == 0) or (hkqueue.timeline[hkqueue.end_index].appointment_time > hkqueue.avg_examination_time + 10 + datetime.now().hour * 60 + datetime.now().minute):
         if (datetime.now().hour * 60 + datetime.now().minute) < hkqueue.start_time:
             data.appointment_time = hkqueue.start_time
         else:
