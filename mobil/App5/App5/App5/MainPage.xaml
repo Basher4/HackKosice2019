@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="App5.MainPage">
+    <ScrollView>
+        <StackLayout Margin="10,35,10,10">
+        <Label Text="Id"
+               HorizontalOptions="Center"
+               FontAttributes="Bold" />
+        <Editor x:Name="id"
+                Placeholder="Zadajte svoje id"
+                HeightRequest="50" />
+        <Picker x:Name="picker"
+        Title="Zvolte druh vysetrenia">
+            <Picker.ItemsSource>
+                <x:Array Type="{x:Type x:String}">
+                    <x:String>Byrokracia</x:String>
+                    <x:String>Osetrenie</x:String>
+                  
+                </x:Array>
+            </Picker.ItemsSource>
+        </Picker>
+        <Label Text="E-mail"
+               HorizontalOptions="Center"
+               FontAttributes="Bold" />
+        <Editor x:Name="email"
+                Placeholder="Zadajte svoj e-mail"
+                HeightRequest="50" />
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Button Text="Objednaj"
+                    Clicked="OnSendButtonClicked" />
+            
+        </Grid>
+        <Label Text="URL"
+               HorizontalOptions="Center"
+               FontAttributes="Bold" />
+        <Editor x:Name="server"
+                Placeholder="Zadajte url"
+                HeightRequest="50" /> 
+    </StackLayout>
+    </ScrollView>
+</ContentPage>
