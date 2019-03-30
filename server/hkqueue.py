@@ -9,7 +9,7 @@ class HkQueue(object):
         self.end_index = 0
     
     def get_first_free_slot(self): #fix_first_free_slot
-        if self.end_index == len(self.timeline)-1:
+        if self.end_index == len(self.timeline) - 1:
             if self.timeline[self.end_index].appointment_time + self.avg_examination_time + 1 < self.end_time:
                 self.end_index += 1
                 return True
