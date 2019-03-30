@@ -31,7 +31,10 @@
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
-            <Button Text="Objednaj"
+            <Button 
+                BackgroundColor="#840d46" 
+                    TextColor="White"                
+                Text="Objednaj"
                     Clicked="OnSendButtonClicked" />
             
         </Grid>

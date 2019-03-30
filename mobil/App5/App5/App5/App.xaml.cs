@@ -1,7 +1,6 @@
 ﻿using Xamarin.Forms;
 using System;
 using System.IO;
-using Org.Json;
 using Newtonsoft.Json.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
@@ -19,7 +18,7 @@ namespace App5
             InitializeComponent();
 
 
-            MainPage = new NavigationPage(new Uvodna(str));
+            MainPage = new NavigationPage(new Uvodna(str)) { BarBackgroundColor = Color.GhostWhite, BackgroundColor = Color.GhostWhite };
         }
 
         protected override async void OnStart()
