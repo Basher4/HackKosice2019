@@ -18,25 +18,25 @@ def patient_enqueue():
     return patient.enqueue(app.config["hkqueue"],
                             pd.PatientFromJson1(data))
 
-@app.route("/api/patient/cancel")
+@app.route("/api/patient/cancel", methods = ["POST"])
 def patient_cancel():
-    data = request.get_json()
+    data = json.loads(request.data)
     return patient.cancel(app.config["hkqueue"],
                             pd.PatientFromJson1(data))
 
-@app.route("/api/doctor/appointment")
+@app.route("/api/doctor/appointment", methods = ["POST"])
 def doctor_appointment():
-    data = request.get_json()
+    data = json.loads(request.data)
     return doctor.new_appointment(app.config["hkqueue"],
                                     pd.PatientFromJson1(data))
 
-@app.route("/api/doctor/entered")
+@app.route("/api/doctor/entered", methods = ["POST"])
 def doctor_entered():
-    data = request.get_json()
-    return doctor.new_appointment(app.config["hkqueue"],
+    data = json.loads(request.data)
+    return doctor.patient_entered(app.config["hkqueue"],
                                     pd.PatientFromJson1(data))
 
-@app.route("/api/stats")
+@app.route("/api/stats", methods = ["POST", "GET"])
 def stats():
     return jsonify({"response":"idk"})
  

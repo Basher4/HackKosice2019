@@ -21,4 +21,5 @@ class HkQueue():
         return len(self.timeline)
 
     def remove_patient(self):
-        self.timeline.pop(0)
+        if len(self.timeline) > 0:
+            self.timeline.pop(0)
