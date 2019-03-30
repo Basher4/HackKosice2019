@@ -1,7 +1,10 @@
 from flask import Flask, jsonify, request
-import patient
-import doctor
+import patient, doctor, hkqueue
 app = Flask(__name__)
+
+@app.before_first_request
+def initialize():
+    app.config["hkqueue"] = hkqueue.HkQueue()
 
 @app.route("/")
 def hello():
@@ -10,22 +13,22 @@ def hello():
 @app.route("/api/patient/enqueue")
 def patient_enqueue():
     data = request.get_json()
-    return patient.enqueue(data)
+    return patient.enqueue(app.config["hkqueue"], data)
 
 @app.route("/api/patient/cancel")
 def patient_cancel():
     data = request.get_json()
-    return patient.cancel(data)
+    return patient.cancel(app.config["hkqueue"], data)
 
 @app.route("/api/doctor/appointment")
 def doctor_appointment():
     data = request.get_json()
-    return doctor.new_appointment(data)
+    return doctor.new_appointment(app.config["hkqueue"], data)
 
 @app.route("/api/doctor/entered")
 def doctor_entered():
     data = request.get_json()
-    return doctor.new_appointment(data)
+    return doctor.new_appointment(app.config["hkqueue"], data)
 
 @app.route("/api/stats")
 def stats():

@@ -1,6 +1,6 @@
 from flask import jsonify
 
-def enqueue(data):
+def enqueue(hkqueue, data):
     resp = {
         "full": False,
         "pos_in_queue": 25,
@@ -8,5 +8,5 @@ def enqueue(data):
     }
     return jsonify(resp)
 
-def cancel(data):
+def cancel(hkqueue, data):
     return jsonify({})
