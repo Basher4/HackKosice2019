@@ -1,6 +1,8 @@
 from flask import Flask, jsonify, request
+import patient
+import doctor
 app = Flask(__name__)
- 
+
 @app.route("/")
 def hello():
     return "Hello World!"
@@ -8,17 +10,22 @@ def hello():
 @app.route("/api/patient/enqueue")
 def patient_enqueue():
     data = request.get_json()
-    resp = {
-        "full": False,
-        "pos_in_queue": 25,
-        "waiting_time": 25*12
-    }
-
-    return jsonify(resp)
+    return patient.enqueue(data)
 
 @app.route("/api/patient/cancel")
 def patient_cancel():
-    return ""
+    data = request.get_json()
+    return patient.cancel(data)
+
+@app.route("/api/doctor/appointment")
+def doctor_appointment():
+    data = request.get_json()
+    return doctor.new_appointment(data)
+
+@app.route("/api/doctor/entered")
+def doctor_entered():
+    data = request.get_json()
+    return doctor.new_appointment(data)
 
 @app.route("/api/stats")
 def stats():
