@@ -6,6 +6,7 @@ using Org.Json;
 using Newtonsoft.Json.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
 
 namespace App5
 {
@@ -29,10 +30,10 @@ namespace App5
             var stringContent = new StringContent(oJsonObject.ToString(), System.Text.Encoding.UTF8, "application/json");
             HttpResponseMessage response = null;
             response =  await _client.PostAsync("https://8080-dot-6923620-dot-devshell.appspot.com/api/patient/enqueue", stringContent);
-            server.Text = stringContent.ToString();
+            string output = JsonConvert.SerializeObject(oJsonObject);
             if (response.IsSuccessStatusCode)
             {
-              
+                server.Text = "received";
 
             }
 
