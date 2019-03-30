@@ -18,7 +18,8 @@
                 <Label Text="Cas cakania" Grid.Row="1" Grid.Column="0" />
                 <Editor x:Name="cas" Grid.Row="1" Grid.Column="1" IsEnabled="False"/>
             </Grid>
-            <Button Text="Objednaj"
+            <Button  x:Name="objednaj"
+                Text="Objednaj"
                     Clicked="OnSendButtonClicked" />
 
             
