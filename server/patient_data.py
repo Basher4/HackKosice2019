@@ -1,4 +1,3 @@
-from hkqueue import HkQueue
 
 def PatientFromJson(data):
     return PatientData(data["id"],
