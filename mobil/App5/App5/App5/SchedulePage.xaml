@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="App5.SchedulePage">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Čas objednávky" />
+            <TimePicker x:Name="timePicker"
+                    Time="11:00:00"
+                    Format="T"
+                     />
+            <Label Text="ID"
+               HorizontalOptions="Center"
+               FontAttributes="Bold" />
+            <Editor x:Name="id"
+                Placeholder="Zadajte ID pacienta"
+                HeightRequest="50" />
+            <Button 
+                BackgroundColor="#840d46" 
+                    TextColor="White"                
+                Text="Objednať"
+                    Clicked="OnScheduleButtonClicked" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

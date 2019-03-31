@@ -1,33 +1,36 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="App5.Uvodna">
+             x:Class="App5.Uvodna"
+             NavigationPage.HasNavigationBar="False">
     <ContentPage.Content>
         <StackLayout
             Margin="10,35,10,10">
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="*" />
-                    <RowDefinition Height="*" />
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                </Grid.ColumnDefinitions>
-                <Label Text="Počet čakajúcich" TextColor="#840d46" Grid.Row="0" Grid.Column="0" />
-                <Editor x:Name="pocet" Grid.Row="0" Grid.Column="1" IsEnabled="True"/>
-                <Label Text="Čas čakania" TextColor="#840d46" Grid.Row="1" Grid.Column="0" />
-                <Editor x:Name="cas" Grid.Row="1" Grid.Column="1" IsEnabled="False"/>
-            </Grid>
+          
+                <Label Text="Doba čakania"  />
+                <Editor x:Name="cas"  IsEnabled="False"/>
 
 
-            <Button BackgroundColor="#840d46" 
+
+                <Button BackgroundColor="#840d46"
                     TextColor="White"
                 VerticalOptions="CenterAndExpand"
                 HorizontalOptions="Center"
                 x:Name="objednaj"
                 Text="Objednať"
                     Clicked="OnSendButtonClicked" />
+
+                <Button BackgroundColor="#840d46"
+                    TextColor="White"
+
+                x:Name="doktor"
+                Text="Stránka pre doktora"
+                    Clicked="OnDoktorButtonClicked" Grid.Column="1"/>
+
+
+
+
+
 
         </StackLayout>
     </ContentPage.Content>

@@ -10,11 +10,15 @@ def initialize():
 
 @app.route("/")
 def hello():
-    return "Hello World!"
+    hkqueue = app.config["hkqueue"]
+    output = "Queue Length: " + str(len(hkqueue.timeline)) + "<br>"
+    for p in hkqueue.timeline:
+        output += "[{}] @ {} - {}<br/>".format(p.sn, p.appointment_time, p.appointment_time + hkqueue.avg_examination_time)
+    return output
 
 @app.route("/api/patient/enqueue", methods = ["POST"])
 def patient_enqueue():
-    data = json.loads(request.data)
+    data = json.loads(request.data.decode("utf-8"))
     return patient.enqueue(app.config["hkqueue"],
                             pd.PatientFromJson1(data))
 
@@ -30,11 +34,9 @@ def doctor_appointment():
     return doctor.new_appointment(app.config["hkqueue"],
                                     pd.PatientFromJson1(data))
 
-@app.route("/api/doctor/entered", methods = ["POST"])
+@app.route("/api/doctor/entered", methods = ["GET"])
 def doctor_entered():
-    data = json.loads(request.data)
-    return doctor.patient_entered(app.config["hkqueue"],
-                                    pd.PatientFromJson1(data))
+    return doctor.patient_entered(app.config["hkqueue"])
 
 @app.route("/api/stats/status", methods = ["POST", "GET"])
 def stats_status():

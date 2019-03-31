@@ -16,7 +16,7 @@
                 <x:Array Type="{x:Type x:String}">
                     <x:String>Byrokracia</x:String>
                     <x:String>Ošetrenie</x:String>
-                  
+
                 </x:Array>
             </Picker.ItemsSource>
         </Picker>
@@ -30,22 +30,22 @@
                HorizontalOptions="Center"
                FontAttributes="Bold" />
             <Editor x:Name="email"
-                Placeholder="Zadajte svoj e-mail"
+
                 HeightRequest="50" />
             <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
-                <Button 
-                BackgroundColor="#840d46" 
+                <Button
+                BackgroundColor="#840d46"
                 TextColor="White"
                 VerticalOptions="CenterAndExpand"
                 HorizontalOptions="Center"
                 Text="Objednaj"
                     Clicked="OnSendButtonClicked" />
             </Grid>
-       
+
     </StackLayout>
     </ScrollView>
 </ContentPage>

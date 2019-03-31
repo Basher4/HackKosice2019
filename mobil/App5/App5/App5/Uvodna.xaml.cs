@@ -13,19 +13,18 @@ namespace App5
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class Uvodna : ContentPage
 	{
-        
+        Dictionary<string, string> info;
 
          public  Uvodna(string str)
 		{
 			InitializeComponent ();
 
-            //Dictionary<string, string>  info = JsonConvert.DeserializeObject<Dictionary<string, string>>(str);
-            ////pocet.Text = info["pos_in_queue"];
-            //cas.Text = info["waiting"];
-            //if (info["full"] == "true")
-            //{
-            //    objednaj.Text = "Plne";
-            //    objednaj.IsEnabled = false;
+            info = JsonConvert.DeserializeObject<Dictionary<string, string>>(str);
+            cas.Text = info["waiting"];
+            if (info["full"] == "true")
+            {
+                objednaj.Text = "Plne";
+                objednaj.IsEnabled = false;
 
             //}
         }
@@ -34,6 +33,13 @@ namespace App5
         {
 
             await Navigation.PushAsync(new MainPage());
+        }
+
+
+        async void OnDoktorButtonClicked(object sender, EventArgs e)
+        {
+
+            await Navigation.PushAsync(new DoctorPage());
         }
 
     }

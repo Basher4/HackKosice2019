@@ -23,9 +23,9 @@ def send_email(user):
     receivers = [user.email]
 
     message = "From: Totally Awesome Project <hackkosice2019cakaren@gmail.com>\n" + \
-    f"To: Totally Awesome Person <{user.email}>\n" + \
+    "To: Totally Awesome Person <{}>\n".format(user.email) + \
     "Subject: Appointment with your doctor\n\n" + \
-    f"Hey, you! You have an appointment at {user.appointment_time}th minute of this day! Get yo' ass here.\n"
+    "Hey, you! You have an appointment at {}th minute of this day! Get yo' ass here.\n".format(user.appointment_time)
 
     print(message)
 
