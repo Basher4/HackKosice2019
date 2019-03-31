@@ -4,13 +4,15 @@ from datetime import datetime
 
 def enqueue(hkqueue, data):
     hkqueue.add_patient(data)
-    if (len(hkqueue.timeline) == 0) or (hkqueue.timeline[hkqueue.end_index].appointment_time > hkqueue.avg_examination_time + 10 + datetime.now().hour * 60 + datetime.now().minute):
+    if (len(hkqueue.timeline) == 1) or (hkqueue.timeline[hkqueue.end_index].appointment_time > hkqueue.avg_examination_time + 10 + datetime.now().hour * 60 + datetime.now().minute):
         if (datetime.now().hour * 60 + datetime.now().minute) < hkqueue.start_time:
             data.appointment_time = hkqueue.start_time
+            print("a")
         else:
             data.appointment_time = datetime.now().hour * 60 + datetime.now().minute
+            print("b")
     else:
-        data.appointment_time = hkqueue.timeline[hkqueue.end_index].appointment_time
+        data.appointment_time = hkqueue.timeline[hkqueue.end_index].appointment_time + hkqueue.avg_examination_time
     stav = hkqueue.get_first_free_slot()
     
     resp = {

@@ -18,3 +18,7 @@ class PatientData():
         self.travel_time = int(travel_time)
         self.appointment_time = int(appointment_time)
         self.email_timer = None
+
+    def set_appointment_time(self, new_time):
+        print("Setting appointment time for {} as {} -> {}".format(self.id, self.appointment_time, new_time))
+        self.appointment_time = new_time

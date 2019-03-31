@@ -10,11 +10,15 @@ def initialize():
 
 @app.route("/")
 def hello():
-    return "Hello World!"
+    hkqueue = app.config["hkqueue"]
+    output = "Queue Length: " + str(len(hkqueue.timeline)) + "<br>"
+    for p in hkqueue.timeline:
+        output += "{} @ {}<br/>".format(p.id, p.appointment_time)
+    return output
 
 @app.route("/api/patient/enqueue", methods = ["POST"])
 def patient_enqueue():
-    data = json.loads(request.data)
+    data = json.loads(request.data.decode("utf-8"))
     return patient.enqueue(app.config["hkqueue"],
                             pd.PatientFromJson1(data))
 
