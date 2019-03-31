@@ -26,7 +26,7 @@ class HkQueue(object):
             else:
                 self.timeline[self.end_index + 1].appointment_time = current_appointment_end + 2 # maybe len +1
                 email_sender.schedule_email(self.timeline[self.end_index + 1])
-                self.end_index += 2
+                self.end_index += 1
                 self.get_first_free_slot()
                 return False
 
