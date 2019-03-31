@@ -1,9 +1,9 @@
 import email_sender
 
 class HkQueue(object):
-    avg_examination_time = 12
+    avg_examination_time = 10
     start_time = 8 * 60
-    end_time = 25 * 60
+    end_time = 16 * 60
     
     def __init__(self):
         self.slot_available = True
