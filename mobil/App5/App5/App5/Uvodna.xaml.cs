@@ -8,16 +8,15 @@ using Newtonsoft.Json;
 using Xamarin.Forms.Xaml;
 using System.Collections.Generic;
 
-namespace App5
-{
-	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class Uvodna : ContentPage
-	{
-        Dictionary<string, string> info;
+namespace App5 {  
 
-         public  Uvodna(string str)
-		{
-			InitializeComponent ();
+public partial class Uvodna : ContentPage
+{
+    Dictionary<string, string> info;
+
+        public Uvodna(string str)
+        {
+            InitializeComponent();
 
             info = JsonConvert.DeserializeObject<Dictionary<string, string>>(str);
             cas.Text = info["waiting"];
@@ -26,7 +25,8 @@ namespace App5
                 objednaj.Text = "Plne";
                 objednaj.IsEnabled = false;
 
-            //}
+                //}
+            }
         }
 
         async void OnSendButtonClicked(object sender, EventArgs e)
@@ -43,4 +43,5 @@ namespace App5
         }
 
     }
-}
+} 
+

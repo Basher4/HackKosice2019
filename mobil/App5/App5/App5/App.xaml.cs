@@ -26,12 +26,12 @@ namespace App5
         {
             HttpResponseMessage response;
             HttpClient _client = new HttpClient();
-            response = await _client.GetAsync("http://10.7.255.164:8080/api/stats/status");
+            response = await _client.GetAsync("https://hackkosice-2019-cakaren.appspot.com/api/stats/status");
             if (response.IsSuccessStatusCode)
             {
                 string str = await response.Content.ReadAsStringAsync();
                 //string str = "";
-                MainPage = new NavigationPage(new Uvodna(str)) { BarBackgroundColor = Color.Blue, BackgroundColor = Color.GhostWhite };
+                MainPage = new NavigationPage(new Uvodna(str)) { BarBackgroundColor = Color.FromHex("#545456"), BackgroundColor = Color.GhostWhite };
 
             }
             //else { MainPage = new MainPage(); }

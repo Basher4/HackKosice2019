@@ -22,11 +22,11 @@ namespace App5
         HttpClient _client = new HttpClient();
         async void OnSendButtonClicked(object sender, EventArgs e)
         {
-            response = await _client.GetAsync("http://10.7.255.164:8080/api/doctor/entered");
+            response = await _client.GetAsync("https://hackkosice-2019-cakaren.appspot.com/api/doctor/entered");
             if (response.IsSuccessStatusCode)
             {
                 string str = await response.Content.ReadAsStringAsync();
-                if (str.Length != 0) { 
+                if (str.Length >=4) { 
                     Dictionary<string, string> info = JsonConvert.DeserializeObject<Dictionary<string, string>>(str);
                     id.Text = info["id"];
                 }

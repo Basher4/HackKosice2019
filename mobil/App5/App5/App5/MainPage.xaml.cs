@@ -18,7 +18,7 @@ namespace App5
             InitializeComponent();
             //pocet.Text = pocet_cak;
 
-           
+            
         }
         HttpClient _client=new HttpClient();
          async void OnSendButtonClicked(object sender, EventArgs e)
@@ -34,10 +34,10 @@ namespace App5
             oJsonObject.Add("id", id.Text);
             oJsonObject.Add("typ", data);
             oJsonObject.Add("travel_time", travel_time.Text);
-            oJsonObject.Add("appointment_time", "None");
+            oJsonObject.Add("appointment_time", 0);
             var stringContent = new StringContent(oJsonObject.ToString(), System.Text.Encoding.UTF8, "application/json");
             HttpResponseMessage response = null;
-            response =  await _client.PostAsync("http://10.7.255.164:8080/api/patient/enqueue", stringContent);
+            response =  await _client.PostAsync("https://hackkosice-2019-cakaren.appspot.com/api/patient/enqueue", stringContent);
             if (response.IsSuccessStatusCode)
             {
                 await DisplayAlert("Upozornenie", "Vaša objednávka prebehla úspešne", "OK");

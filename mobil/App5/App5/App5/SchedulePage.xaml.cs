@@ -34,10 +34,10 @@ namespace App5
             oJsonObject.Add("email", "None");
             oJsonObject.Add("id", id.Text);
             oJsonObject.Add("typ", "None");
-            oJsonObject.Add("travel_time", "None");
+            oJsonObject.Add("travel_time", 0);
             oJsonObject.Add("appointment_time", interval.Minutes);
             var stringContent = new StringContent(oJsonObject.ToString(), System.Text.Encoding.UTF8, "application/json");
-            HttpResponseMessage response = await _client.PostAsync("http://10.7.255.164:8080/api/patient/enqueue", stringContent);
+            HttpResponseMessage response = await _client.PostAsync("https://hackkosice-2019-cakaren.appspot.com/api/patient/enqueue", stringContent);
             await Navigation.PopAsync();
         }
     }

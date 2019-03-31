@@ -1,51 +1,61 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="App5.MainPage">
-    <ScrollView>
-        <StackLayout Margin="10,35,10,10">
-        <Label Text="Rodné číslo"
+             x:Class="App5.MainPage"
+             BackgroundImage="download.jpg">
+    
+        <ScrollView>
+            <StackLayout Margin="10,35,10,10">
+            <Label Text="Objednaj sa"
                HorizontalOptions="Center"
+               FontAttributes="Bold" 
+                   FontSize="Large"
+                   TextColor="#545456"/>
+
+            <Label Text="Rodné číslo"
+               HorizontalOptions="Center"
+                   TextColor="#545456"
                FontAttributes="Bold" />
-        <Editor x:Name="id"
+                <Editor x:Name="id"
                 Placeholder="Zadajte svoje rodné číslo"
                 HeightRequest="50" />
-        <Picker x:Name="picker"
-        Title="Zvoľte druh vyšetrenia">
-            <Picker.ItemsSource>
-                <x:Array Type="{x:Type x:String}">
-                    <x:String>Byrokracia</x:String>
-                    <x:String>Ošetrenie</x:String>
+                <Picker x:Name="picker"
+        Title="Zvoľte druh vyšetrenia"
+                SelectedIndexChanged="SelectedIndexChanged">
+                    <Picker.ItemsSource>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:String>Byrokracia</x:String>
+                            <x:String>Ošetrenie</x:String>
 
-                </x:Array>
-            </Picker.ItemsSource>
-        </Picker>
-        <Label Text="Koľko minút Vám bude trvať cesta"
+                        </x:Array>
+                    </Picker.ItemsSource>
+                </Picker>
+                <Label Text="Koľko minút Vám bude trvať cesta"
                HorizontalOptions="Center"
+                       TextColor="#545456"
                FontAttributes="Bold" />
-        <Editor x:Name="travel_time"
+                <Editor x:Name="travel_time"
                 Placeholder="Zadajte dĺžku cesty"
                 HeightRequest="50" />
-            <Label Text="E-mail"
+                <Label Text="E-mail"
                HorizontalOptions="Center"
+                       TextColor="#545456"
                FontAttributes="Bold" />
-            <Editor x:Name="email"
-
+                <Editor x:Name="email"
+    Placeholder="Zadajte svoj e-mail"
                 HeightRequest="50" />
-            <Grid>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="*" />
-            </Grid.ColumnDefinitions>
-                <Button
-                BackgroundColor="#840d46"
+           
+                    <Button x:Name="objednat"
+                BackgroundColor="#545456"
                 TextColor="White"
+                            Opacity="0.8"
                 VerticalOptions="CenterAndExpand"
                 HorizontalOptions="Center"
                 Text="Objednaj"
                     Clicked="OnSendButtonClicked" />
-            </Grid>
+                
 
-    </StackLayout>
-    </ScrollView>
+            </StackLayout>
+        </ScrollView>
+    
 </ContentPage>
