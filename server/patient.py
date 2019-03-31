@@ -14,7 +14,7 @@ def enqueue(hkqueue, data):
             data.appointment_time = datetime.now().hour * 60 + datetime.now().minute
     else:
         data.appointment_time = hkqueue.timeline[hkqueue.end_index].appointment_time
-    stav = hkqueue.get_first_free_slot()
+    stav = hkqueue.fix_timeline()
     hkqueue.sort_timeline()
     
     resp = {
