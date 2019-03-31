@@ -8,7 +8,7 @@
             <TimePicker x:Name="timePicker"
                     Time="11:00:00"
                     Format="T"
-                    PropertyChanged="OnTimePickerPropertyChanged" />
+                     />
             <Label Text="Id"
                HorizontalOptions="Center"
                FontAttributes="Bold" />

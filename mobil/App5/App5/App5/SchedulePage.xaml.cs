@@ -17,10 +17,7 @@ namespace App5
             InitializeComponent();
         }
 
-        void OnTimePickerPropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
-        {
-
-        }
+        
         HttpClient _client = new HttpClient();
         async void OnScheduleButtonClicked(object sender,EventArgs e)
         {
