@@ -5,22 +5,12 @@
     <ContentPage.Content>
         <ScrollView>
             <StackLayout Margin="10,35,10,10">
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
-                    </Grid.ColumnDefinitions>
-                    <Button 
+
+                <Button 
                 BackgroundColor="#840d46" 
                     TextColor="White"                
                 Text="Privolat dalsieho pacienta"
                     Clicked="OnSendButtonClicked" />
-                    <Button 
-                BackgroundColor="#840d46" 
-                    TextColor="White"                
-                Text="Objednat pacienta"
-                    Clicked="OnScheduleButtonClicked" />
-                </Grid>
                 <Label Text="ID dalsieho pacienta je:"
                 VerticalOptions="Start" 
                 HorizontalOptions="Start" />
@@ -28,6 +18,12 @@
                 IsEnabled="False"
                 HeightRequest="50" 
                         VerticalOptions="Center"/>
+
+                <Button 
+                BackgroundColor="#840d46" 
+                    TextColor="White"                
+                Text="Objednat pacienta"
+                    Clicked="OnScheduleButtonClicked"/>
             </StackLayout>
             </ScrollView>
     </ContentPage.Content>

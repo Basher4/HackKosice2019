@@ -13,16 +13,17 @@ namespace App5
     public partial class MainPage : ContentPage
     {
         string data="";
-        public MainPage()
+        public MainPage(string pocet_cak)
         {
             InitializeComponent();
+            pocet.Text = pocet_cak;
 
            
         }
         HttpClient _client=new HttpClient();
          async void OnSendButtonClicked(object sender, EventArgs e)
         {
-            if (id.Text.Length == 0 || (data.Length == 0) || email.Text.Length==0  || travel_time.Text.Length == 0)
+            if (id.Text== null || (data.Length == 0) || email.Text == null || travel_time.Text == null)
             {
                 await DisplayAlert("Error", "Prosim zadajte vsetky udaje", "OK");
                 return;

@@ -4,7 +4,9 @@
              x:Class="App5.MainPage">
     <ScrollView>
         <StackLayout Margin="10,35,10,10">
-        <Label Text="Id"
+            <Label Text="Pocet cakajucich"  />
+            <Editor x:Name="pocet"  IsEnabled="false"/>
+            <Label Text="Id"
                HorizontalOptions="Center"
                FontAttributes="Bold" />
         <Editor x:Name="id"
