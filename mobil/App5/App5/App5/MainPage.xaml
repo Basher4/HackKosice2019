@@ -20,13 +20,19 @@
                 </x:Array>
             </Picker.ItemsSource>
         </Picker>
-        <Label Text="E-mail"
+        <Label Text="Cas dokial pridete"
                HorizontalOptions="Center"
                FontAttributes="Bold" />
-        <Editor x:Name="email"
+        <Editor x:Name="travel_time"
+                Placeholder="Zadajte dlzku cesty"
+                HeightRequest="50" />
+            <Label Text="E-mail"
+               HorizontalOptions="Center"
+               FontAttributes="Bold" />
+            <Editor x:Name="email"
                 Placeholder="Zadajte svoj e-mail"
                 HeightRequest="50" />
-        <Grid>
+            <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="*" />
