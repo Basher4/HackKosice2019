@@ -13,23 +13,23 @@ namespace App5
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class Uvodna : ContentPage
 	{
-        Dictionary<string, string> info;
+        
 
          public  Uvodna(string str)
 		{
 			InitializeComponent ();
 
-            //info = JsonConvert.DeserializeObject<Dictionary<string, string>>(str);
+            Dictionary<string, string>  info = JsonConvert.DeserializeObject<Dictionary<string, string>>(str);
             //pocet.Text = info["pos_in_queue"];
-            //cas.Text = info["waiting_time"];
-            //if (info["full"] == "True")
-            //{
-            //    objednaj.Text = "Plne";
-            //    objednaj.IsEnabled = false;
-           
-            //}
+            cas.Text = info["waiting"];
+            if (info["full"] == "true")
+            {
+                objednaj.Text = "Plne";
+                objednaj.IsEnabled = false;
+
+            }
         }
-        
+
         async void OnSendButtonClicked(object sender, EventArgs e)
         {
 

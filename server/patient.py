@@ -1,3 +1,4 @@
+import email_sender
 from flask import jsonify
 from datetime import datetime
 
@@ -11,6 +12,7 @@ def enqueue(hkqueue, data):
     else:
         data.appointment_time = hkqueue.timeline[hkqueue.end_index].appointment_time
     stav = hkqueue.get_first_free_slot()
+    
     resp = {
         "full": stav,
         "pos_in_queue": str(len(hkqueue.timeline)),
