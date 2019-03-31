@@ -34,11 +34,9 @@ def doctor_appointment():
     return doctor.new_appointment(app.config["hkqueue"],
                                     pd.PatientFromJson1(data))
 
-@app.route("/api/doctor/entered", methods = ["POST"])
+@app.route("/api/doctor/entered", methods = ["GET"])
 def doctor_entered():
-    data = json.loads(request.data)
-    return doctor.patient_entered(app.config["hkqueue"],
-                                    pd.PatientFromJson1(data))
+    return doctor.patient_entered(app.config["hkqueue"])
 
 @app.route("/api/stats/status", methods = ["POST", "GET"])
 def stats_status():
