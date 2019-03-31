@@ -2,7 +2,7 @@ import email_sender
 
 class HkQueue(object):
     avg_examination_time = 12
-    start_time = 1 * 60
+    start_time = 8 * 60
     end_time = 25 * 60
     
     def __init__(self):
@@ -10,7 +10,7 @@ class HkQueue(object):
         self.timeline = []
         self.end_index = 0
     
-    def fix_timeline(self): #fix_first_free_slot
+    def fix_timeline_overlaps(self): #fix_first_free_slot
         if self.end_index == len(self.timeline) - 1:
             if self.timeline[self.end_index].appointment_time + self.avg_examination_time + 1 < self.end_time:
                 self.end_index += 1
@@ -24,10 +24,9 @@ class HkQueue(object):
                 self.end_index += 1
                 return False
             else:
-                self.timeline[self.end_index + 1].appointment_time = current_appointment_end + 2 # maybe len +1
-                email_sender.schedule_email(self.timeline[self.end_index + 1])
+                self.timeline[self.end_index + 1].reschedule(current_appointment_end + 2) # maybe len +1
                 self.end_index += 1
-                self.fix_timeline()
+                self.fix_timeline_overlaps()
                 return False
 
     def add_patient(self, patient):

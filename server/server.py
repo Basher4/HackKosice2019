@@ -13,7 +13,7 @@ def hello():
     hkqueue = app.config["hkqueue"]
     output = "Queue Length: " + str(len(hkqueue.timeline)) + "<br>"
     for p in hkqueue.timeline:
-        output += "[{}] {} @ {}<br/>".format(hkqueue.timeline.index(p), p.id, p.appointment_time)
+        output += "[{}] @ {} - {}<br/>".format(p.sn, p.appointment_time, p.appointment_time + hkqueue.avg_examination_time)
     return output
 
 @app.route("/api/patient/enqueue", methods = ["POST"])

@@ -2,25 +2,20 @@ import email_sender
 from flask import jsonify
 from datetime import datetime
 
-def enqueue(hkqueue, data):
-    hkqueue.add_patient(data)
-    minutes_now = datetime.now().hour * 60 + datetime.now().minute
-    soonest_time_possible = max(minutes_now + data.travel_time, hkqueue.start_time)
+def enqueue(hq, data):
+    minutes_now = 8 * 60 # datetime.now().hour * 60 + datetime.now().minute
+    soonest_time_possible = max(minutes_now + data.travel_time, hq.start_time)
+    data.appointment_time = soonest_time_possible
 
-    if (len(hkqueue.timeline) == 1) or (hkqueue.timeline[hkqueue.end_index].appointment_time > hkqueue.avg_examination_time + 10 + minutes_now):
-        if (minutes_now) < hkqueue.start_time:
-            data.appointment_time = hkqueue.start_time
-        else:
-            data.appointment_time = datetime.now().hour * 60 + datetime.now().minute
-    else:
-        data.appointment_time = hkqueue.timeline[hkqueue.end_index].appointment_time
-    stav = hkqueue.fix_timeline()
-    hkqueue.sort_timeline()
-    
+    hq.add_patient(data)
+    hq.sort_timeline()
+    hq.end_index = 0
+    stav = hq.fix_timeline_overlaps()
+
     resp = {
         "full": stav,
-        "pos_in_queue": str(len(hkqueue.timeline)),
-        "waiting_time": str((len(hkqueue.timeline)-1)*hkqueue.avg_examination_time)
+        "pos_in_queue": str(hq.timeline.index(data)+1),
+        "waiting_time": str((hq.timeline.index(data))*hq.avg_examination_time)
     }
     return jsonify(resp)
 

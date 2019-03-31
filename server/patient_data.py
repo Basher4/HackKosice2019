@@ -1,3 +1,4 @@
+import email_sender
 
 def PatientFromJson(data):
     return PatientData(data["id"],
@@ -25,3 +26,10 @@ class PatientData():
             self.travel_time = int(travel_time)
         except:
             self.travel_time = travel_time
+
+    def reschedule(self, new_time):
+        self.appointment_time = new_time
+        email_sender.schedule_email(self)
+
+    def offset_appointment(self, delta):
+        self.reschedule(self.appointment_time + delta)

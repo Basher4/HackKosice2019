@@ -9,8 +9,8 @@ def new_appointment(hkqueue, data):
 
 def patient_entered(hkqueue, data):
     if len(hkqueue.timeline) == 0:
-        return jsonify({})
-        
+        return jsonify()
+
     pat_now = hkqueue.timeline.pop(0)
     if len(hkqueue.timeline) > 0:
         time_ap = hkqueue.timeline[0].appointment_time
@@ -18,5 +18,5 @@ def patient_entered(hkqueue, data):
         change = (time_now + hkqueue.avg_examination_time) - time_ap
         for i in range(hkqueue.end_index):
             print(hkqueue.end_index)
-            hkqueue.timeline[i].appointment_time += change
+            hkqueue.timeline[i].offset_appointment(change) # reschedules email
     return jsonify(pat_now)
