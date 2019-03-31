@@ -4,8 +4,11 @@ from datetime import datetime
 
 def enqueue(hkqueue, data):
     hkqueue.add_patient(data)
-    if (len(hkqueue.timeline) == 1) or (hkqueue.timeline[hkqueue.end_index].appointment_time > hkqueue.avg_examination_time + 10 + datetime.now().hour * 60 + datetime.now().minute):
-        if (datetime.now().hour * 60 + datetime.now().minute) < hkqueue.start_time:
+    minutes_now = datetime.now().hour * 60 + datetime.now().minute
+    soonest_time_possible = max(minutes_now + data.travel_time, hkqueue.start_time)
+
+    if (len(hkqueue.timeline) == 1) or (hkqueue.timeline[hkqueue.end_index].appointment_time > hkqueue.avg_examination_time + 10 + minutes_now):
+        if (minutes_now) < hkqueue.start_time:
             data.appointment_time = hkqueue.start_time
         else:
             data.appointment_time = datetime.now().hour * 60 + datetime.now().minute

@@ -10,7 +10,7 @@ class HkQueue(object):
         self.timeline = []
         self.end_index = 0
     
-    def get_first_free_slot(self): #fix_first_free_slot
+    def fix_timeline(self): #fix_first_free_slot
         if self.end_index == len(self.timeline) - 1:
             if self.timeline[self.end_index].appointment_time + self.avg_examination_time + 1 < self.end_time:
                 self.end_index += 1
@@ -27,7 +27,7 @@ class HkQueue(object):
                 self.timeline[self.end_index + 1].appointment_time = current_appointment_end + 2 # maybe len +1
                 email_sender.schedule_email(self.timeline[self.end_index + 1])
                 self.end_index += 1
-                self.get_first_free_slot()
+                self.fix_timeline()
                 return False
 
     def add_patient(self, patient):
