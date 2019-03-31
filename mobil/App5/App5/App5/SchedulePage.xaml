@@ -4,21 +4,21 @@
              x:Class="App5.SchedulePage">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Cas objednavky" />
+            <Label Text="Čas objednávky" />
             <TimePicker x:Name="timePicker"
                     Time="11:00:00"
                     Format="T"
                      />
-            <Label Text="Id"
+            <Label Text="ID"
                HorizontalOptions="Center"
                FontAttributes="Bold" />
             <Editor x:Name="id"
-                Placeholder="Zadajte id pacienta"
+                Placeholder="Zadajte ID pacienta"
                 HeightRequest="50" />
             <Button 
                 BackgroundColor="#840d46" 
                     TextColor="White"                
-                Text="Objednat"
+                Text="Objednať"
                     Clicked="OnScheduleButtonClicked" />
         </StackLayout>
     </ContentPage.Content>

@@ -22,7 +22,7 @@ namespace App5
         async void OnScheduleButtonClicked(object sender,EventArgs e)
         {
           
-            TimeSpan opening_time= TimeSpan.Parse("9:00:00");
+            TimeSpan opening_time= TimeSpan.Parse("8:00:00");
             TimeSpan interval = timePicker.Time - opening_time;
             if (id.Text == null)
             {

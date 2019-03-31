@@ -19,20 +19,20 @@ namespace App5
 		{
 			InitializeComponent ();
 
-            //  info = JsonConvert.DeserializeObject<Dictionary<string, string>>(str);
-                     //cas.Text = info["waiting"];
-            //if (info["full"] == "true")
-            //{
-            //    objednaj.Text = "Plne";
-            //    objednaj.IsEnabled = false;
+            info = JsonConvert.DeserializeObject<Dictionary<string, string>>(str);
+            cas.Text = info["waiting"];
+            if (info["full"] == "true")
+            {
+                objednaj.Text = "Plne";
+                objednaj.IsEnabled = false;
 
-            //}
+            }
         }
 
         async void OnSendButtonClicked(object sender, EventArgs e)
         {
 
-            await Navigation.PushAsync(new MainPage(info["pos_in_queue"]));
+            await Navigation.PushAsync(new MainPage());
         }
 
 

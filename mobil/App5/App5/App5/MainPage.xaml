@@ -6,43 +6,43 @@
         <StackLayout Margin="10,35,10,10">
             <Label Text="Pocet cakajucich"  />
             <Editor x:Name="pocet"  IsEnabled="false"/>
-            <Label Text="Id"
+            <Label Text="ID"
                HorizontalOptions="Center"
                FontAttributes="Bold" />
         <Editor x:Name="id"
-                Placeholder="Zadajte svoje id"
+               
                 HeightRequest="50" />
         <Picker x:Name="picker"
-        Title="Zvolte druh vysetrenia"  SelectedIndexChanged="SelectedIndexChanged">
+        Title="Zvoľte druh vyšetrenia"  SelectedIndexChanged="SelectedIndexChanged">
             <Picker.ItemsSource>
                 <x:Array Type="{x:Type x:String}">
-                    <x:String>Byrokracia</x:String>
-                    <x:String>Osetrenie</x:String>
+                    <x:String>Výdaj receptu</x:String>
+                    <x:String>Ošetrenie</x:String>
                   
                 </x:Array>
             </Picker.ItemsSource>
         </Picker>
-        <Label Text="Cas dokial pridete"
+        <Label Text="Čas cesty"
                HorizontalOptions="Center"
                FontAttributes="Bold" />
         <Editor x:Name="travel_time"
-                Placeholder="Zadajte dlzku cesty"
+               
                 HeightRequest="50" />
             <Label Text="E-mail"
                HorizontalOptions="Center"
                FontAttributes="Bold" />
             <Editor x:Name="email"
-                Placeholder="Zadajte svoj e-mail"
+              
                 HeightRequest="50" />
             <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
-            <Button 
+            <Button x:Name="objednat"
                 BackgroundColor="#840d46" 
                     TextColor="White"                
-                Text="Objednaj"
+                Text="Objednať"
                     Clicked="OnSendButtonClicked" />
             
         </Grid>

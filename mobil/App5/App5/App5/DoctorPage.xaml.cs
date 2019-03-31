@@ -22,12 +22,15 @@ namespace App5
         HttpClient _client = new HttpClient();
         async void OnSendButtonClicked(object sender, EventArgs e)
         {
-            response = await _client.GetAsync("http://10.7.255.164:8080/api/stats/status");
+            response = await _client.GetAsync("http://10.7.255.164:8080/api/doctor/entered");
             if (response.IsSuccessStatusCode)
             {
                 string str = await response.Content.ReadAsStringAsync();
-                Dictionary<string, string> info = JsonConvert.DeserializeObject<Dictionary<string, string>>(str);
-                id.Text = info["id"];
+                if (str.Length != 0) { 
+                    Dictionary<string, string> info = JsonConvert.DeserializeObject<Dictionary<string, string>>(str);
+                    id.Text = info["id"];
+                }
+                else { id.Text = "Žiadny ďalší pacient v poradí"; };
             }
         }
         async void OnScheduleButtonClicked(object sender, EventArgs e)

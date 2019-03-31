@@ -13,10 +13,10 @@ namespace App5
     public partial class MainPage : ContentPage
     {
         string data="";
-        public MainPage(string pocet_cak)
+        public MainPage()
         {
             InitializeComponent();
-            pocet.Text = pocet_cak;
+            //pocet.Text = pocet_cak;
 
            
         }
@@ -38,6 +38,12 @@ namespace App5
             var stringContent = new StringContent(oJsonObject.ToString(), System.Text.Encoding.UTF8, "application/json");
             HttpResponseMessage response = null;
             response =  await _client.PostAsync("http://10.7.255.164:8080/api/patient/enqueue", stringContent);
+            if (response.IsSuccessStatusCode)
+            {
+                await DisplayAlert("Upozornenie", "Vaša objednávka prebehla úspešne", "OK");
+                objednat.Text = "Objednané";
+                objednat.IsEnabled = false;
+            }
             
            
            

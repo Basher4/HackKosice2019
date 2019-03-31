@@ -4,8 +4,7 @@
              x:Class="App5.LoadingPage">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Loading"
-                   x:Name="err"
+            <Label Text="Načítavam..."
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand" />
         </StackLayout>
