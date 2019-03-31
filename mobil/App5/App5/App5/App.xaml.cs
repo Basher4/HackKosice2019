@@ -18,7 +18,7 @@ namespace App5
             InitializeComponent();
 
 
-            MainPage = new LoadingPage() ;
+            MainPage = new SchedulePage() ;
         }
 
         protected override async void OnStart()

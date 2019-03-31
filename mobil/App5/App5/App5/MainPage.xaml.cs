@@ -27,9 +27,10 @@ namespace App5
             oJsonObject.Add("id", id.Text);
             oJsonObject.Add("typ", data);
             oJsonObject.Add("travel_time", travel_time.Text);
+            oJsonObject.Add("appointment_time", "None");
             var stringContent = new StringContent(oJsonObject.ToString(), System.Text.Encoding.UTF8, "application/json");
             HttpResponseMessage response = null;
-            response =  await _client.PostAsync("https://8080-dot-6923620-dot-devshell.appspot.com/api/patient/enqueue", stringContent);
+            response =  await _client.PostAsync("http://10.7.255.164:8080/api/patient/enqueue", stringContent);
             
            
            
