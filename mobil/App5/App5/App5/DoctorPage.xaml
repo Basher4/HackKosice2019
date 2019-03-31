@@ -9,9 +9,9 @@
                 <Button 
                 BackgroundColor="#840d46" 
                     TextColor="White"                
-                Text="Privolat dalsieho pacienta"
+                Text="Privolať ďalšieho pacienta"
                     Clicked="OnSendButtonClicked" />
-                <Label Text="ID dalsieho pacienta je:"
+                <Label Text="ID ďalšieho pacienta je:"
                 VerticalOptions="Start" 
                 HorizontalOptions="Start" />
                 <Editor x:Name="id"
@@ -22,7 +22,7 @@
                 <Button 
                 BackgroundColor="#840d46" 
                     TextColor="White"                
-                Text="Objednat pacienta"
+                Text="Objednať pacienta"
                     Clicked="OnScheduleButtonClicked"/>
             </StackLayout>
             </ScrollView>
