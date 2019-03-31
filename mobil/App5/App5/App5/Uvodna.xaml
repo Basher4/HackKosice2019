@@ -14,31 +14,21 @@
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
-                <Label Text="Pocet cakajucich" Grid.Row="0" Grid.Column="0" />
+                <Label Text="Počet čakajúcich" TextColor="#840d46" Grid.Row="0" Grid.Column="0" />
                 <Editor x:Name="pocet" Grid.Row="0" Grid.Column="1" IsEnabled="True"/>
-                <Label Text="Cas cakania" Grid.Row="1" Grid.Column="0" />
+                <Label Text="Čas čakania" TextColor="#840d46" Grid.Row="1" Grid.Column="0" />
                 <Editor x:Name="cas" Grid.Row="1" Grid.Column="1" IsEnabled="False"/>
             </Grid>
 
-            <Grid
-                HorizontalOptions="Center">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                </Grid.ColumnDefinitions>
-                <Button BackgroundColor="#840d46" 
+
+            <Button BackgroundColor="#840d46" 
                     TextColor="White"
-                       
+                VerticalOptions="CenterAndExpand"
+                HorizontalOptions="Center"
                 x:Name="objednaj"
-                Text="Objednaj"
+                Text="Objednať"
                     Clicked="OnSendButtonClicked" />
 
-            </Grid>
-
-            
-
-            
-            
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

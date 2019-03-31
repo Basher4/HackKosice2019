@@ -19,15 +19,15 @@ namespace App5
 		{
 			InitializeComponent ();
 
-            Dictionary<string, string>  info = JsonConvert.DeserializeObject<Dictionary<string, string>>(str);
-            //pocet.Text = info["pos_in_queue"];
-            cas.Text = info["waiting"];
-            if (info["full"] == "true")
-            {
-                objednaj.Text = "Plne";
-                objednaj.IsEnabled = false;
+            //Dictionary<string, string>  info = JsonConvert.DeserializeObject<Dictionary<string, string>>(str);
+            ////pocet.Text = info["pos_in_queue"];
+            //cas.Text = info["waiting"];
+            //if (info["full"] == "true")
+            //{
+            //    objednaj.Text = "Plne";
+            //    objednaj.IsEnabled = false;
 
-            }
+            //}
         }
 
         async void OnSendButtonClicked(object sender, EventArgs e)
