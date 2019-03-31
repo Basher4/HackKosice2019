@@ -34,7 +34,7 @@ class HkQueue(object):
         self.timeline.append(patient)
         
     def sort_timeline(self):
-        self.timeline.sort(key = lambda p: p.appointment_time)
+        self.timeline.sort(key = lambda p: (p.appointment_time, p.sn))
 
     def get_patients_in_queue(self):
         return len(self.timeline)
