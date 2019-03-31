@@ -11,25 +11,28 @@ namespace App5
 {
     public partial class App : Application
     {
-        HttpResponseMessage response;
-        string str;
+        
+ 
         public App()
         {
             InitializeComponent();
 
 
-            MainPage = new NavigationPage(new Uvodna(str)) { BarBackgroundColor = Color.GhostWhite, BackgroundColor = Color.GhostWhite };
+            MainPage = new LoadingPage() ;
         }
 
         protected override async void OnStart()
         {
-            //HttpClient _client = new HttpClient();
-            //response = await _client.GetAsync("https://8080-dot-6923620-dot-devshell.appspot.com/api/stats/status");
-            //if (response.IsSuccessStatusCode)
-            //{
-            //    str = await response.Content.ReadAsStringAsync();
+            HttpResponseMessage response;
+            HttpClient _client = new HttpClient();
+             response = await _client.GetAsync("http://10.7.255.164:8080/api/stats/status");
+            if (response.IsSuccessStatusCode)
+            {
+                string str = await response.Content.ReadAsStringAsync();
+                MainPage = new NavigationPage(new Uvodna(str)) { BarBackgroundColor = Color.GhostWhite, BackgroundColor = Color.GhostWhite };
 
-            //}
+            }
+            else { MainPage = new MainPage(); }
         }
 
         protected override void OnSleep()

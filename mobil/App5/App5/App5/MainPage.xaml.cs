@@ -23,12 +23,13 @@ namespace App5
          async void OnSendButtonClicked(object sender, EventArgs e)
         {
             JObject oJsonObject = new JObject();
-            oJsonObject.Add("e-mail", email.Text);
+            oJsonObject.Add("email", email.Text);
             oJsonObject.Add("id", id.Text);
             oJsonObject.Add("typ", data);
+            oJsonObject.Add("travel_time", travel_time.Text);
             var stringContent = new StringContent(oJsonObject.ToString(), System.Text.Encoding.UTF8, "application/json");
             HttpResponseMessage response = null;
-            response =  await _client.PostAsync("https://8080-dot-6923620-dot-devshell.appspot.com/api/patient/enqueue", stringContent);
+            response =  await _client.PostAsync("http://10.7.255.164:8080/api/patient/enqueue", stringContent);
             
            
            
