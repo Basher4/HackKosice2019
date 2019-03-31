@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify, request, render_template
 import patient, doctor, hkqueue, stats
 import patient_data as pd
 import json
@@ -9,6 +9,10 @@ def initialize():
     app.config["hkqueue"] = hkqueue.HkQueue()
 
 @app.route("/")
+def root():
+    return render_template("index.html", users=len(app.config['hkqueue'].timeline))
+
+@app.route("/dbg")
 def hello():
     hkqueue = app.config["hkqueue"]
     output = "Queue Length: " + str(len(hkqueue.timeline)) + "<br>"

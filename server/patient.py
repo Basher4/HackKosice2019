@@ -3,7 +3,7 @@ from flask import jsonify
 from datetime import datetime
 
 def enqueue(hq, data):
-    minutes_now = 8 * 60 # datetime.now().hour * 60 + datetime.now().minute
+    minutes_now = datetime.now().hour * 60 + datetime.now().minute
     soonest_time_possible = max(minutes_now + int(data.travel_time), hq.start_time)
     data.appointment_time = soonest_time_possible
 
