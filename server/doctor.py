@@ -13,6 +13,7 @@ def patient_entered(hkqueue, data):
         time_ap = hkqueue.timeline[0].appointment_time
         time_now = datetime.now().hour * 60 + datetime.now().minute
         change = (time_now + hkqueue.avg_examination_time) - time_ap
-        for i in range(hkqueue.end_index + 1):
+        for i in range(hkqueue.end_index):
+            print(hkqueue.end_index)
             hkqueue.timeline[i].appointment_time += change
     return jsonify(pat_now)
