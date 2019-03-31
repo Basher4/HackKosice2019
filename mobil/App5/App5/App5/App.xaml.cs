@@ -18,21 +18,22 @@ namespace App5
             InitializeComponent();
 
 
-            MainPage = new LoadingPage() ;
+            MainPage = new SchedulePage() ;
         }
 
         protected override async void OnStart()
         {
-            HttpResponseMessage response;
-            HttpClient _client = new HttpClient();
-             response = await _client.GetAsync("http://10.7.255.164:8080/api/stats/status");
-            if (response.IsSuccessStatusCode)
-            {
-                string str = await response.Content.ReadAsStringAsync();
+            //HttpResponseMessage response;
+            //HttpClient _client = new HttpClient();
+            // response = await _client.GetAsync("http://10.7.255.164:8080/api/stats/status");
+            //if (response.IsSuccessStatusCode)
+            //{
+            //    string str = await response.Content.ReadAsStringAsync();
+            string str = "";
                 MainPage = new NavigationPage(new Uvodna(str)) { BarBackgroundColor = Color.GhostWhite, BackgroundColor = Color.GhostWhite };
 
-            }
-            else { MainPage = new MainPage(); }
+            //}
+            //else { MainPage = new MainPage(); }
         }
 
         protected override void OnSleep()
