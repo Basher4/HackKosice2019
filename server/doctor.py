@@ -8,6 +8,9 @@ def new_appointment(hkqueue, data):
 
 
 def patient_entered(hkqueue, data):
+    if len(hkqueue.timeline) == 0:
+        return jsonify({})
+        
     pat_now = hkqueue.timeline.pop(0)
     if len(hkqueue.timeline) > 0:
         time_ap = hkqueue.timeline[0].appointment_time

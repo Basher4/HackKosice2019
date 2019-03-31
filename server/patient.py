@@ -12,6 +12,7 @@ def enqueue(hkqueue, data):
     else:
         data.appointment_time = hkqueue.timeline[hkqueue.end_index].appointment_time
     stav = hkqueue.get_first_free_slot()
+    hkqueue.sort_timeline()
     
     resp = {
         "full": stav,
