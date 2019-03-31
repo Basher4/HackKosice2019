@@ -1,3 +1,5 @@
+import email_sender
+
 class HkQueue(object):
     avg_examination_time = 12
     start_time = 23 * 60
@@ -26,6 +28,7 @@ class HkQueue(object):
                 return True
             else:
                 self.timeline[self.end_index + 1].appointment_time = self.timeline[self.end_index].appointment_time + self.avg_examination_time + 2 # maybe len +1
+                email_sender.schedule_email(self.timeline[self.end_index + 1])
                 self.end_index += 2
                 self.get_first_free_slot()
                 return True

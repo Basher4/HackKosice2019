@@ -3,8 +3,9 @@ import patient_data
 from hkqueue import HkQueue
 
 def schedule_email(user):
-    print(user.appointment_time)
-    print(user.travel_time)
+    if not (user.email_timer is None):
+        print("Cancelling sending of email for " + user.email)
+        user.email_timer.cancel()
 
     time_now = datetime.datetime.now()
     minute_of_day = time_now.hour * 60 + time_now.minute
@@ -14,7 +15,7 @@ def schedule_email(user):
 
     print("Scheduling to send an email in " + str(when_to_send_email) + "mins - "
             + str(datetime.datetime.now() + datetime.timedelta(minutes=when_to_send_email)))
-    
+    user.email_timer = t
 
 
 def send_email(user):
@@ -28,11 +29,14 @@ def send_email(user):
 
     print(message)
 
-    smtpObj = smtplib.SMTP_SSL('smtp.gmail.com', 465)
-    smtpObj.login("hackkosice2019cakaren", "hackkosice")
-    smtpObj.sendmail(sender, receivers, message)         
-    smtpObj.quit()
-    print("Email sent to " + user.email)
+    try:
+        smtpObj = smtplib.SMTP_SSL('smtp.gmail.com', 465)
+        smtpObj.login("hackkosice2019cakaren", "hackkosice")
+        smtpObj.sendmail(sender, receivers, message)         
+        smtpObj.quit()
+        print("Email sent to " + user.email)
+    except:
+        print("Sending email to " + user.email + " failed")
 
 if __name__ == "__main__":
     ja = patient_data.PatientData(123, 'matej.genci@gmail.com', 1600, 30)

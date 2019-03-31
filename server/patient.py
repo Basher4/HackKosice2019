@@ -12,8 +12,7 @@ def enqueue(hkqueue, data):
     else:
         data.appointment_time = hkqueue.timeline[hkqueue.end_index].appointment_time
     stav = hkqueue.get_first_free_slot()
-    email_sender.schedule_email(data)
-
+    
     resp = {
         "full": stav,
         "pos_in_queue": str(len(hkqueue.timeline)),
