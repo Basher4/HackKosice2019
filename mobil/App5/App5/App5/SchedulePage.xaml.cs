@@ -27,6 +27,11 @@ namespace App5
           
             TimeSpan opening_time= TimeSpan.Parse("9:00:00");
             TimeSpan interval = timePicker.Time - opening_time;
+            if (id.Text.Length == 0)
+            {
+               await DisplayAlert("Error", "Prosim zadajte id pacienta", "OK");
+                return;
+            }
 
             JObject oJsonObject = new JObject();
             oJsonObject.Add("email", "None");

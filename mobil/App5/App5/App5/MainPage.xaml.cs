@@ -12,7 +12,7 @@ namespace App5
 {
     public partial class MainPage : ContentPage
     {
-        string data;
+        string data="";
         public MainPage()
         {
             InitializeComponent();
@@ -22,6 +22,12 @@ namespace App5
         HttpClient _client=new HttpClient();
          async void OnSendButtonClicked(object sender, EventArgs e)
         {
+            if (id.Text.Length == 0 || (data.Length == 0) || email.Text.Length==0  || travel_time.Text.Length == 0)
+            {
+                await DisplayAlert("Error", "Prosim zadajte vsetky udaje", "OK");
+                return;
+            }
+
             JObject oJsonObject = new JObject();
             oJsonObject.Add("email", email.Text);
             oJsonObject.Add("id", id.Text);
@@ -35,7 +41,7 @@ namespace App5
            
            
         }
-        void OnPickerSelectedIndexChanged(object sender, EventArgs e)
+        void SelectedIndexChanged(object sender, EventArgs e)
         {
             var picker = (Picker)sender;
             int selectedIndex = picker.SelectedIndex;

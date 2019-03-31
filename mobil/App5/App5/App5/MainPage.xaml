@@ -11,7 +11,7 @@
                 Placeholder="Zadajte svoje id"
                 HeightRequest="50" />
         <Picker x:Name="picker"
-        Title="Zvolte druh vysetrenia">
+        Title="Zvolte druh vysetrenia"  SelectedIndexChanged="SelectedIndexChanged">
             <Picker.ItemsSource>
                 <x:Array Type="{x:Type x:String}">
                     <x:String>Byrokracia</x:String>
